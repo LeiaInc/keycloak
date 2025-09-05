@@ -94,7 +94,7 @@ if [ "$INSTALL" != "" ]; then
 	else
 		VERSION=$INSTALL
 		if [ "$INSTALL" == "nightly" ]; then
-            VERSION=26.3.3
+            VERSION=26.3.3-custom
   	    fi
 
 		echo ""

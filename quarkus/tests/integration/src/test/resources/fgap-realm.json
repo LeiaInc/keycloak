@@ -2671,7 +2671,7 @@
     "frontendUrl" : "",
     "acr.loa.map" : "{}"
   },
-  "keycloakVersion" : "26.3.3",
+  "keycloakVersion" : "26.3.3-custom",
   "userManagedAccessAllowed" : false,
   "organizationsEnabled" : false,
   "verifiableCredentialsEnabled" : false,

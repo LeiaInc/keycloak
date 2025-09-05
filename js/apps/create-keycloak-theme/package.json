@@ -1,6 +1,6 @@
 {
   "name": "create-keycloak-theme",
-  "version": "26.3.3",
+  "version": "26.3.3-custom",
   "description": "Create a new Keycloak ui project based on a template",
   "main": "create.js",
   "type": "module",
