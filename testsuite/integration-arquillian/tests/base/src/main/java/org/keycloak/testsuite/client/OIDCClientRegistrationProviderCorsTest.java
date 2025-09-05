@@ -28,7 +28,7 @@ import java.util.stream.Collectors;
 import static org.junit.Assert.*;
 import static org.keycloak.testsuite.admin.AbstractAdminTest.loadJson;
 
-public class OIDCClientRegistrationCorsTest extends AbstractKeycloakTest {
+public class OIDCClientRegistrationProviderCorsTest extends AbstractKeycloakTest {
 
     private static final String VALID_CORS_URL = "http://localtest.me:8180";
     private static final String INVALID_CORS_URL = "http://invalid.localtest.me:8180";
