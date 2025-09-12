@@ -1,5 +1,5 @@
 # Use a minimal base image with Java
-FROM eclipse-temurin:17-jre-jammy
+FROM eclipse-temurin:21-jre
 
 # Set Keycloak version and user/group
 ARG KEYCLOAK_VERSION=26.3.0-custom
