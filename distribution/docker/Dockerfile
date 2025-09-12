@@ -12,14 +12,13 @@ RUN groupadd -r ${KEYCLOAK_GROUP} && \
     useradd -r -g ${KEYCLOAK_GROUP} ${KEYCLOAK_USER} && \
     mkdir -p ${KEYCLOAK_HOME}
 
-# Copy the server distribution ZIP created by Maven
-# Assumes the Docker build is run from the parent directory of the 'keycloak' source folder
-COPY ./keycloak-${KEYCLOAK_VERSION}.zip /tmp/
+# Copy the server distribution TAR.GZ created by Maven
+COPY ./keycloak-${KEYCLOAK_VERSION}.tar.gz /tmp/
 
-# Unzip the distribution and set ownership
-RUN unzip /tmp/keycloak-${KEYCLOAK_VERSION}.zip -d ${KEYCLOAK_HOME} && \
-    mv ${KEYCLOAK_HOME}/keycloak-${KEYCLOAK_VERSION}/* ${KEYCLOAK_HOME}/ && \
-    rm -rf ${KEYCLOAK_HOME}/keycloak-${KEYCLOAK_VERSION} /tmp/keycloak-${KEYCLOAK_VERSION}.zip && \
+# Unpack the archive using tar and set ownership
+# The --strip-components=1 flag removes the top-level directory from the archive
+RUN tar -xzf /tmp/keycloak-${KEYCLOAK_VERSION}.tar.gz -C ${KEYCLOAK_HOME} --strip-components=1 && \
+    rm /tmp/keycloak-${KEYCLOAK_VERSION}.tar.gz && \
     chown -R ${KEYCLOAK_USER}:${KEYCLOAK_GROUP} ${KEYCLOAK_HOME}
 
 # Copy your custom provider (JDBC driver) and set ownership
